@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from influxdb import InfluxDBClient
+from datetime import datetime
 
 DB_PORT = os.environ['DB_PORT'] if 'DB_PORT' in os.environ else None
 DB_HOST = os.environ['DB_HOST'] if 'DB_HOST' in os.environ else None
@@ -34,12 +35,11 @@ if __name__ == '__main__':
         data.append(
             {
                 'measurement': CITY,
-                'datetime': row['datetime'],
+                'time': row['datetime'],
                 'fields': {
-                    'name': float(row[name])
+                    name: float(row[name])
                 }
             }
         )
-        print(row['datetime'], row[name])
 
     influx.write_points(data)
