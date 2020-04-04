@@ -36,7 +36,7 @@ if __name__ == '__main__':
                 'measurement': CITY,
                 'datetime': row['datetime'],
                 'fields': {
-                    'name': float(row['name'])
+                    'name': float(row[name])
                 }
             }
         )
