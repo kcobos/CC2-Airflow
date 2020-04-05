@@ -1,0 +1,7 @@
+flask
+gunicorn
+statsmodels
+pandas
+pmdarima
+influxdb
+pytest
